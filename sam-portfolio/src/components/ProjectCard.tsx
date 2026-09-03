@@ -47,16 +47,19 @@ function ProjectVisual({ project }: { project: Project }) {
 }
 
 function ProjectLinks({ project }: { project: Project }) {
+  if (!project.liveUrl && !project.sourceUrl) return null
+
   return (
-    <div className="flex flex-wrap gap-3 mt-7">
+    <div className="flex flex-wrap gap-3 mt-8">
       {project.liveUrl && (
         <a
           href={project.liveUrl}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 bg-copper text-bg font-medium px-5 py-2.5 rounded-full hover:bg-copper-bright transition-colors"
+          className="action-link action-link-primary"
+          aria-label={`Open live project: ${project.title}`}
         >
-          Live project ↗
+          Live project <span aria-hidden="true">↗</span>
         </a>
       )}
       {project.sourceUrl && (
@@ -64,9 +67,10 @@ function ProjectLinks({ project }: { project: Project }) {
           href={project.sourceUrl}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 text-ink-dim border border-line px-5 py-2.5 rounded-full hover:text-ink hover:border-copper transition-colors"
+          className="action-link action-link-secondary"
+          aria-label={`Open source code for ${project.title}`}
         >
-          Source ↗
+          Source <span aria-hidden="true">↗</span>
         </a>
       )}
     </div>
@@ -78,28 +82,28 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
   const flip = index % 2 === 1
 
   return (
-    <article className="grid md:grid-cols-2 gap-8 md:gap-16 items-center py-16 border-b border-line last:border-b-0">
+    <article className="project-card grid md:grid-cols-2 gap-8 md:gap-16 items-center py-16 md:py-20 border-b border-line last:border-b-0">
       <div className={flip ? 'md:order-2' : ''}>
         <ProjectVisual project={project} />
       </div>
 
       <div className={flip ? 'md:order-1' : ''}>
-        <div className="flex items-center justify-between gap-4 mb-3">
-          <p className={`font-mono text-xs ${accentClass}`}>{project.category}</p>
-          <span className="font-mono text-xs text-ink-faint">0{index + 1}</span>
+        <div className="flex items-center justify-between gap-4 mb-5">
+          <p className={`font-mono text-[0.68rem] ${accentClass} tracking-[0.12em] uppercase`}>{project.category}</p>
+          <span className="font-mono text-xs text-ink-faint whitespace-nowrap">0{index + 1} / 03</span>
         </div>
         <h3 className="font-display font-semibold text-2xl md:text-3xl text-ink mb-4">{project.title}</h3>
-        <p className="text-ink-dim leading-relaxed mb-6 max-w-md">{project.summary}</p>
+        <p className="text-ink-dim leading-relaxed mb-7 max-w-md">{project.summary}</p>
 
-        <dl className="space-y-3 mb-6 text-sm">
-          <div><dt className="text-ink-faint mb-1">What it is</dt><dd className="text-ink-dim leading-relaxed">{project.what}</dd></div>
-          <div><dt className="text-ink-faint mb-1">Why I built it</dt><dd className="text-ink-dim leading-relaxed">{project.why}</dd></div>
-          <div><dt className="text-ink-faint mb-1">What I learned</dt><dd className="text-ink-dim leading-relaxed">{project.learned}</dd></div>
+        <dl className="case-study-grid space-y-4 mb-7 text-sm">
+          <div><dt>What</dt><dd>{project.what}</dd></div>
+          <div><dt>Why</dt><dd>{project.why}</dd></div>
+          <div><dt>Learning</dt><dd>{project.learned}</dd></div>
         </dl>
 
         <div className="flex flex-wrap gap-2">
           {project.tech.map((t) => (
-            <span key={t} className="font-mono text-xs text-ink-dim border border-line rounded-full px-3 py-1">{t}</span>
+            <span key={t} className="font-mono text-[0.68rem] text-ink-dim border border-line rounded-full px-3 py-1.5">{t}</span>
           ))}
         </div>
 

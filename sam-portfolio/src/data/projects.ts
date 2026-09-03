@@ -62,15 +62,15 @@ export const projects: Project[] = [
 
 export const skillGroups = [
   {
-    label: 'Development',
+    label: 'Core development',
     items: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Node.js'],
   },
   {
-    label: 'Interactive Web',
+    label: 'Interactive web',
     items: ['Three.js', 'React Three Fiber', 'GSAP / Motion', 'WebGL'],
   },
   {
-    label: 'Backend & Services',
+    label: 'Backend & services',
     items: ['Django', 'Supabase', 'REST APIs'],
   },
   {
@@ -78,7 +78,7 @@ export const skillGroups = [
     items: ['Git', 'Vite', 'Vercel', 'Cursor', 'VS Code'],
   },
   {
-    label: 'Exploration',
+    label: 'Exploring',
     items: ['AI / LLMs', 'Local models', 'Emerging tech'],
   },
 ]

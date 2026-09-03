@@ -42,14 +42,14 @@ export function Hero() {
         </p>
         <h1
           data-reveal
-          className="font-display font-extrabold text-[clamp(3rem,11vw,7.5rem)] leading-[0.92] text-ink text-balance"
+          className="font-display font-extrabold text-[clamp(3.2rem,11vw,7.5rem)] leading-[0.92] text-ink text-balance"
         >
-          Sam
+          Sam Tyndale
         </h1>
         <p data-reveal className="font-display text-xl md:text-2xl text-ink-dim mt-4 max-w-xl">
           ECE Student · Developer · Builder
         </p>
-        <p data-reveal className="text-base md:text-lg text-ink-dim mt-6 max-w-md leading-relaxed">
+        <p data-reveal className="text-base md:text-lg text-ink-dim mt-6 max-w-lg leading-relaxed">
           I build interactive digital products where engineering meets design —
           somewhere between circuits, code, and things people actually use.
         </p>

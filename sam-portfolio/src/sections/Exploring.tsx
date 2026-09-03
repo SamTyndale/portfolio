@@ -1,37 +1,32 @@
 import { exploringNow, interests } from '../data/projects'
+import { SectionHeading } from '../components/SectionHeading'
 
 export function Exploring() {
   return (
     <section id="exploring" className="container-px py-24 md:py-32 border-b border-line">
-      <div className="grid md:grid-cols-2 gap-16">
+      <SectionHeading
+        kicker="Experiments / notebook"
+        title="What has my attention right now"
+        description="Not a list of expertise. Just the questions, tools, and adjacent disciplines I keep returning to."
+      />
+      <div className="grid md:grid-cols-[1.15fr_0.85fr] gap-12 md:gap-20">
         <div>
-          <p className="font-mono text-xs text-signal mb-4">Currently exploring</p>
-          <p className="text-ink-dim leading-relaxed mb-6 max-w-md">
-            Not expertise — just where my attention is right now.
-          </p>
-          <ul className="space-y-3">
-            {exploringNow.map((item) => (
-              <li key={item} className="flex items-baseline gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-copper shrink-0 translate-y-[-2px]" />
-                <span className="text-ink text-lg font-display">{item}</span>
+          <p className="font-mono text-[0.68rem] text-copper tracking-[0.14em] uppercase mb-5">Current threads</p>
+          <ol className="notebook-list">
+            {exploringNow.map((item, index) => (
+              <li key={item}>
+                <span className="font-mono text-xs text-copper">0{index + 1} — {index === 0 ? 'ACTIVE' : index === 1 ? 'EXPLORING' : 'LEARNING'}</span>
+                <span className="font-display text-xl md:text-2xl text-ink">{item}</span>
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
-
         <div>
-          <p className="font-mono text-xs text-signal mb-4">Beyond the screen</p>
-          <p className="text-ink-dim leading-relaxed mb-6 max-w-md">
-            Building isn't only code — a few of the other things I spend
-            time on.
-          </p>
-          <ul className="space-y-3">
-            {interests.map((item) => (
-              <li key={item} className="text-ink text-lg font-display">
-                {item}
-              </li>
-            ))}
-          </ul>
+          <p className="font-mono text-[0.68rem] text-signal tracking-[0.14em] uppercase mb-5">Beyond the screen</p>
+          <p className="text-ink-dim leading-relaxed max-w-sm mb-6">The inputs that keep the work observant, tactile, and a little less predictable.</p>
+          <div className="flex flex-wrap gap-2">
+            {interests.map((interest) => <span key={interest} className="font-mono text-xs text-ink-dim border border-line rounded-full px-3 py-1.5">{interest}</span>)}
+          </div>
         </div>
       </div>
     </section>

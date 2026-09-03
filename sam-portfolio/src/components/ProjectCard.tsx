@@ -46,6 +46,33 @@ function ProjectVisual({ project }: { project: Project }) {
   )
 }
 
+function ProjectLinks({ project }: { project: Project }) {
+  return (
+    <div className="flex flex-wrap gap-3 mt-7">
+      {project.liveUrl && (
+        <a
+          href={project.liveUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 bg-copper text-bg font-medium px-5 py-2.5 rounded-full hover:bg-copper-bright transition-colors"
+        >
+          Live project ↗
+        </a>
+      )}
+      {project.sourceUrl && (
+        <a
+          href={project.sourceUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 text-ink-dim border border-line px-5 py-2.5 rounded-full hover:text-ink hover:border-copper transition-colors"
+        >
+          Source ↗
+        </a>
+      )}
+    </div>
+  )
+}
+
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   const accentClass = project.accent === 'copper' ? 'text-copper' : 'text-signal'
   const flip = index % 2 === 1
@@ -57,7 +84,10 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       </div>
 
       <div className={flip ? 'md:order-1' : ''}>
-        <p className={`font-mono text-xs mb-3 ${accentClass}`}>{project.category}</p>
+        <div className="flex items-center justify-between gap-4 mb-3">
+          <p className={`font-mono text-xs ${accentClass}`}>{project.category}</p>
+          <span className="font-mono text-xs text-ink-faint">0{index + 1}</span>
+        </div>
         <h3 className="font-display font-semibold text-2xl md:text-3xl text-ink mb-4">{project.title}</h3>
         <p className="text-ink-dim leading-relaxed mb-6 max-w-md">{project.summary}</p>
 
@@ -72,6 +102,8 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             <span key={t} className="font-mono text-xs text-ink-dim border border-line rounded-full px-3 py-1">{t}</span>
           ))}
         </div>
+
+        <ProjectLinks project={project} />
       </div>
     </article>
   )

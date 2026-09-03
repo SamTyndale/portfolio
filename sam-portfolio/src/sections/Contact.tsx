@@ -19,25 +19,31 @@ export function Contact() {
         I&apos;m always interested in thoughtful products, ambitious interfaces, and experiments that sit somewhere between engineering and creativity.
       </p>
 
-      {socials.email ? (
-        <a href={`mailto:${socials.email}`} className="inline-flex items-center text-xl md:text-2xl font-display text-ink border-b border-line hover:border-copper pb-1 transition-colors">
-          {socials.email}
-        </a>
-      ) : (
-        <p className="font-mono text-xs text-ink-faint border border-line rounded-full inline-flex px-4 py-2">
-          Contact links coming soon
-        </p>
-      )}
-
-      {links.length > 0 && (
-        <div className="flex flex-wrap gap-6 mt-12 text-sm text-ink-dim">
-          {links.map((link) => (
-            <a key={link.label} href={link.value} target="_blank" rel="noreferrer" className="hover:text-ink transition-colors">
-              {link.label}
-            </a>
-          ))}
-        </div>
-      )}
+      <div className="flex flex-wrap items-center gap-4">
+        {socials.email ? (
+          <a
+            href={`mailto:${socials.email}`}
+            className="inline-flex items-center gap-2 bg-copper text-bg font-medium px-6 py-3 rounded-full hover:bg-copper-bright transition-colors"
+          >
+            Email me ↗
+          </a>
+        ) : (
+          <span className="font-mono text-xs text-ink-faint border border-line rounded-full px-4 py-2">
+            Email coming soon
+          </span>
+        )}
+        {links.map((link) => (
+          <a
+            key={link.label}
+            href={link.value}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-ink-dim border border-line px-5 py-3 rounded-full hover:text-ink hover:border-copper transition-colors"
+          >
+            {link.label} ↗
+          </a>
+        ))}
+      </div>
     </section>
   )
 }

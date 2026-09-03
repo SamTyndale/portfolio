@@ -34,12 +34,11 @@ export function Hero() {
       <Suspense fallback={null}>
         <HeroScene />
       </Suspense>
-      {/* readability scrim so type stays legible over the 3D layer */}
       <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/70 to-transparent md:via-bg/40" />
 
       <div className="relative container-px w-full pt-24">
         <p data-reveal className="font-mono text-xs text-signal tracking-wide mb-6">
-          Thanjavur, Tamil Nadu
+          ECE × SOFTWARE × INTERACTIVE WEB
         </p>
         <h1
           data-reveal
@@ -48,24 +47,24 @@ export function Hero() {
           Sam
         </h1>
         <p data-reveal className="font-display text-xl md:text-2xl text-ink-dim mt-4 max-w-xl">
-          ECE Student · Developer · Builder · Creative
+          ECE Student · Developer · Builder
         </p>
         <p data-reveal className="text-base md:text-lg text-ink-dim mt-6 max-w-md leading-relaxed">
-          I like turning ideas into things you can actually click, scroll, and
-          use — somewhere between circuits and code.
+          I build interactive digital products where engineering meets design —
+          somewhere between circuits, code, and things people actually use.
         </p>
         <div data-reveal className="mt-10 flex flex-wrap items-center gap-4">
           <a
             href="#work"
             className="inline-flex items-center gap-2 bg-copper text-bg font-medium px-6 py-3 rounded-full hover:bg-copper-bright transition-colors"
           >
-            Explore my work
+            View my work ↗
           </a>
           <a
-            href="#about"
+            href="#contact"
             className="inline-flex items-center gap-2 text-ink-dim border border-line px-6 py-3 rounded-full hover:text-ink hover:border-copper transition-colors"
           >
-            About me
+            Let&apos;s talk
           </a>
         </div>
       </div>

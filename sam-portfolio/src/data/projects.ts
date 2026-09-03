@@ -92,10 +92,9 @@ export const exploringNow = [
 
 export const interests = ['Photography', 'Photo editing', 'Music']
 
-// Add personal links here when you are ready. Empty values are handled by the UI.
 export const socials = {
   email: '',
-  github: '',
+  github: 'https://github.com/SamTyndale',
   linkedin: '',
   instagram: '',
 }

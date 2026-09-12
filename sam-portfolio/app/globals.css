@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+:root{--background:#faf9f6;--foreground:#11100e;--muted:#f1efe9;--line:#11100e14;--dim:#11100e9e;--faint:#11100e5c;--signal:#b45f35;--accent:#b45f35;--font-sans:var(--font-geist),system-ui,sans-serif;--font-display:var(--font-fraunces),Georgia,serif;--font-mono:var(--font-mono),ui-monospace,monospace}
+.dark{--background:#0b0b0b;--foreground:#f5f2ec;--muted:#151515;--line:#ffffff14;--dim:#f5f2ec9e;--faint:#f5f2ec55;--signal:#e28754;--accent:#e28754}
+html{scroll-behavior:smooth;color-scheme:light}html.dark{color-scheme:dark}
+body{margin:0;background:var(--background);color:var(--foreground);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}::selection{background:var(--accent);color:var(--background)}
+a{text-decoration:none;color:inherit}.focus-ring:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.container-px{width:min(100%,1200px);margin-inline:auto;padding-inline:24px}@media(min-width:640px){.container-px{padding-inline:40px}}
+html[data-theme-anim="1"]::view-transition-old(root),html[data-theme-anim="1"]::view-transition-new(root){animation:none;mix-blend-mode:normal}html[data-theme-anim="1"]::view-transition-new(root){animation:theme-reveal 700ms cubic-bezier(.22,1,.36,1) both;z-index:1}html[data-theme-anim="1"]::view-transition-old(root){z-index:0}@keyframes theme-reveal{from{clip-path:circle(0 at var(--theme-cx) var(--theme-cy))}to{clip-path:circle(var(--theme-r) at var(--theme-cx) var(--theme-cy))}}
+.grid-bg{background-image:linear-gradient(to right,var(--line) 1px,transparent 1px),linear-gradient(to bottom,var(--line) 1px,transparent 1px);background-size:42px 42px}
+.project-card{transition:transform .5s cubic-bezier(.22,1,.36,1),border-color .4s,box-shadow .5s}.project-card:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--foreground) 18%,transparent);box-shadow:0 18px 50px #00000012}.dark .project-card:hover{box-shadow:0 18px 50px #00000070}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
